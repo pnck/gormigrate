@@ -4,7 +4,7 @@ go 1.15
 
 require (
 	github.com/joho/godotenv v1.3.0
-	github.com/stretchr/testify v1.7.0
+	github.com/stretchr/testify v1.7.1
 	gonum.org/v1/gonum v0.9.1
 	gorm.io/driver/mysql v1.1.0
 	gorm.io/driver/postgres v1.0.8
