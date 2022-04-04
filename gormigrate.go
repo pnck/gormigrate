@@ -85,7 +85,7 @@ func (e *DuplicatedIDError) Error() string {
 	return fmt.Sprintf(`gormigrate: Duplicated migration MigrationID: "%s"`, e.ID)
 }
 
-func DummyMigration(id string) *Migration {
+func newDummyMigration(id string) *Migration {
 	return &Migration{MigrationID: id, Migrate: dummyMigration}
 }
 

@@ -62,10 +62,10 @@ func newMigrationsV2() []*Migration {
 			MigrationID: "3",
 			Migrate: func(tx *gorm.DB) error {
 				println("Do migration 3")
-				runCount += 1
+				runCount ++
 				return nil
 			},
-			Dependencies: []*Migration{DummyMigration("1.1.1"), DummyMigration("2.2")},
+			Dependencies: []*Migration{newDummyMigration("1.1.1"), newDummyMigration("2.2")},
 		},
 		{
 			MigrationID: "1.1.1",
@@ -77,7 +77,7 @@ func newMigrationsV2() []*Migration {
 				println("Undo migration 1.1.1")
 				return tx.Migrator().DropColumn(&PetsV2{}, "Age")
 			},
-			Dependencies: []*Migration{DummyMigration("1.1")},
+			Dependencies: []*Migration{newDummyMigration("1.1")},
 		},
 		{
 			MigrationID: "2.2",
@@ -85,7 +85,7 @@ func newMigrationsV2() []*Migration {
 				println("Do migration 2.2")
 				return nil
 			},
-			Dependencies: []*Migration{DummyMigration("2")},
+			Dependencies: []*Migration{newDummyMigration("2")},
 		},
 		{
 			MigrationID: "2.1",
@@ -116,7 +116,7 @@ func newMigrationsV2() []*Migration {
 			Migrate: func(db *gorm.DB) error {
 				return errors.New("should not run")
 			},
-			Dependencies: []*Migration{DummyMigration("NotSatisfied")},
+			Dependencies: []*Migration{newDummyMigration("NotSatisfied")},
 		}}
 }
 
