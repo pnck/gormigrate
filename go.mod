@@ -3,7 +3,7 @@ module github.com/go-gormigrate/gormigrate/v2
 go 1.15
 
 require (
-	github.com/joho/godotenv v1.3.0
+	github.com/joho/godotenv v1.4.0
 	github.com/stretchr/testify v1.7.0
 	gonum.org/v1/gonum v0.9.1
 	gorm.io/driver/mysql v1.1.0
